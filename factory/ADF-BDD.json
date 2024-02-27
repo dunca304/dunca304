@@ -1,0 +1,9 @@
+{
+	"name": "ADF-BDD",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9db0727f-dbd6-4ef1-a647-ebfa418815c4",
+		"tenantId": "243bd71d-cef7-442d-b37f-3ff10a3e2832"
+	}
+}
