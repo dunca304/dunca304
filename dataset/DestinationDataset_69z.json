@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_69z",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLand",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sampledata"
+			}
+		}
+	}
+}
