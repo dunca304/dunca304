@@ -53,6 +53,13 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
+								"sink": {
+									"name": "RowId",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
 								"source": {
 									"name": "Retailer",
 									"type": "String",
@@ -89,6 +96,13 @@
 								}
 							},
 							{
+								"sink": {
+									"name": "ManufacturerProductCode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
 								"source": {
 									"name": "SalesValueUSD",
 									"type": "String",
@@ -112,6 +126,28 @@
 									"name": "UnitsSold",
 									"type": "Int32",
 									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "PipelineRunId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PipelineRunId",
+									"type": "Guid",
+									"physicalType": "uniqueidentifier"
+								}
+							},
+							{
+								"source": {
+									"name": "sourceFileName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sourceFileName",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
