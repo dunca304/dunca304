@@ -41,28 +41,17 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Retailer",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Retailer",
-									"type": "String"
+									"path": "$['Month']"
 								}
 							},
 							{
 								"source": {
-									"name": "SalesMonth",
-									"type": "String"
-								},
-								"sink": {
-									"name": "SalesMonth",
-									"type": "DateTime"
+									"path": "$['Company']"
 								}
 							},
 							{
 								"source": {
-									"name": "Product",
-									"type": "String"
+									"path": "$['Sales'][0]['Product']"
 								},
 								"sink": {
 									"name": "Product",
@@ -71,22 +60,21 @@
 							},
 							{
 								"source": {
-									"name": "SalesValueUSD",
-									"type": "String"
+									"path": "$['Sales'][0]['ManufacturerProductCode']"
 								},
 								"sink": {
-									"name": "SalesValueUSD",
-									"type": "Decimal"
+									"name": "ManufacturerProductCode",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "UnitsSold",
-									"type": "String"
-								},
-								"sink": {
-									"name": "UnitsSold",
-									"type": "Int32"
+									"path": "$['Sales'][0]['Units']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales'][0]['Value']"
 								}
 							}
 						]
