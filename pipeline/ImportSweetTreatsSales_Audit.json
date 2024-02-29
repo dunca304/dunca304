@@ -96,6 +96,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Product",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "ManufacturerProductCode",
 									"type": "String",
