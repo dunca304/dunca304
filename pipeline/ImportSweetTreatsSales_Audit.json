@@ -19,15 +19,15 @@
 						"type": "DelimitedTextSource",
 						"additionalColumns": [
 							{
-								"name": "sourceFileName",
-								"value": "$$FILEPATH"
-							},
-							{
 								"name": "PipelineRunId",
 								"value": {
 									"value": "@pipeline().RunId",
 									"type": "Expression"
 								}
+							},
+							{
+								"name": "sourceFileName",
+								"value": "$$FILEPATH"
 							}
 						],
 						"storeSettings": {
