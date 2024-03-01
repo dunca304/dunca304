@@ -131,6 +131,17 @@
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
+							},
+							{
+								"source": {
+									"name": "RunSeqNo",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RunSeqNo",
+									"type": "Int32",
+									"physicalType": "int"
+								}
 							}
 						],
 						"typeConversion": true,
