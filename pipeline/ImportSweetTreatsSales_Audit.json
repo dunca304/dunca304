@@ -123,17 +123,6 @@
 							},
 							{
 								"source": {
-									"name": "PipelineRunId",
-									"type": "String"
-								},
-								"sink": {
-									"name": "PipelineRunId",
-									"type": "Guid",
-									"physicalType": "uniqueidentifier"
-								}
-							},
-							{
-								"source": {
 									"name": "sourceFileName",
 									"type": "String"
 								},
