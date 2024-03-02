@@ -183,8 +183,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ASQL_dboSalesLoad",
-						"type": "DatasetReference"
+						"referenceName": "ASQL_dboCpt6",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Sales_LOAD"
+						}
 					}
 				]
 			},
@@ -407,7 +410,13 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(activity('Import sales data').output.rowsSkipped, 0)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
