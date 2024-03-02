@@ -1,0 +1,15 @@
+{
+	"name": "ImportSTFormatFile_chap6_b",
+	"properties": {
+		"parameters": {
+			"FolderPath": {
+				"type": "string",
+				"defaultValue": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/NaughtyButNice"
+			}
+		},
+		"folder": {
+			"name": "Chapter6"
+		},
+		"annotations": []
+	}
+}
