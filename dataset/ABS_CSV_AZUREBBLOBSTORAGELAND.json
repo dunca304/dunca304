@@ -22,7 +22,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/SweetTreats",
+				"fileName": {
+					"value": "@dataset().WildcardFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().WildcardFolderPath",
+					"type": "Expression"
+				},
 				"container": "sampledata"
 			},
 			"columnDelimiter": ",",
