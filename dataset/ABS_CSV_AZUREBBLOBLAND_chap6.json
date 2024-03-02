@@ -28,15 +28,15 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().WildcardFileName",
+					"value": "@dataset().File",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().WildcardFolderPath",
+					"value": "@dataset().Directory",
 					"type": "Expression"
 				},
 				"container": {
-					"value": "@dataset().Dataset",
+					"value": "@dataset().Container",
 					"type": "Expression"
 				}
 			},
