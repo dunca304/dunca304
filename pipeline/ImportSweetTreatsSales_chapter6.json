@@ -154,7 +154,7 @@
 						"referenceName": "ABS_CSV_AZUREBBLOBLAND_chap6",
 						"type": "DatasetReference",
 						"parameters": {
-							"Container": "sampledata",
+							"Container": "SampleData",
 							"Directory": {
 								"value": "@pipeline().parameters.Directory",
 								"type": "Expression"
