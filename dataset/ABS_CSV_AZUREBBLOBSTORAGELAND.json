@@ -1,0 +1,56 @@
+{
+	"name": "ABS_CSV_AZUREBBLOBSTORAGELAND",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLand",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"WildcardFolderPath": {
+				"type": "string"
+			},
+			"WildcardFileName": {
+				"type": "string",
+				"defaultValue": "*.csv"
+			}
+		},
+		"folder": {
+			"name": "Chapter5"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/SweetTreats",
+				"container": "sampledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SalesMonth",
+				"type": "String"
+			},
+			{
+				"name": "Retailer",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "SalesValueUSD",
+				"type": "String"
+			},
+			{
+				"name": "UnitsSold",
+				"type": "String"
+			}
+		]
+	}
+}
