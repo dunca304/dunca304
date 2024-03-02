@@ -41,7 +41,7 @@
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"wildcardFolderPath": {
-								"value": "@pipeline().parameters.WildcardFileNmae",
+								"value": "@pipeline().parameters.WildcardFolderPath",
 								"type": "Expression"
 							},
 							"wildcardFileName": {
