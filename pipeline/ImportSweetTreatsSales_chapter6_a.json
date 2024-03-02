@@ -246,7 +246,7 @@
 							"type": "Int32"
 						},
 						"RunStatus": {
-							"value": "'Success'",
+							"value": "'successful'",
 							"type": "String"
 						}
 					}
