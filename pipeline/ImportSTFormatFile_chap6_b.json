@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get FileList",
+				"name": "Get File List",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -27,7 +27,11 @@
 							"File": " "
 						}
 					},
-					"fieldList": [],
+					"fieldList": [
+						"exists",
+						"itemType",
+						"itemName"
+					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
 						"enablePartitionDiscovery": false
