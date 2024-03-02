@@ -154,6 +154,7 @@
 						"referenceName": "ABS_CSV_AZURELAND_CH6",
 						"type": "DatasetReference",
 						"parameters": {
+							"Container": "sampledata",
 							"Directory": {
 								"value": "@pipeline().parameters.Directory",
 								"type": "Expression"
