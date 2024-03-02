@@ -43,7 +43,7 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
-						"WildcardFolderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/Deserts4All"
+						"WildcardFolderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/Desserts4All"
 					}
 				}
 			}
