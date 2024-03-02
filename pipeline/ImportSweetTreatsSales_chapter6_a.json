@@ -279,7 +279,7 @@
 							"Comments": {
 								"type": "String",
 								"value": {
-									"value": "concat('Pipeline ', pipeline().Pipeline, ), ' executed in ', pipeline().DataFactory, ' - loading file ', pipeline().parameters.Directory, '/',pipeline().parameters.File)",
+									"value": "@concat('Pipeline ', pipeline().Pipeline, ' executed in ', pipeline().DataFactory,' - loading file ', pipeline().parameters.Directory, '/',pipeline().parameters.File)",
 									"type": "Expression"
 								}
 							},
@@ -302,8 +302,11 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ASQL_dboSalesLoad",
-						"type": "DatasetReference"
+						"referenceName": "ASQL_dboCpt6",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Sales_LOAD"
+						}
 					}
 				}
 			},
