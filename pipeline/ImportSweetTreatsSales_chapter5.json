@@ -40,8 +40,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/SweetTreats",
-							"wildcardFileName": "*",
+							"wildcardFolderPath": {
+								"value": "@pipeline().parameters.WildcardFileNmae",
+								"type": "Expression"
+							},
+							"wildcardFileName": {
+								"value": "@pipeline().parameters.WildcardFileNmae",
+								"type": "Expression"
+							},
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
