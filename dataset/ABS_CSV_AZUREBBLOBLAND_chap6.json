@@ -10,8 +10,7 @@
 				"type": "string"
 			},
 			"Directory": {
-				"type": "string",
-				"defaultValue": "*.csv"
+				"type": "string"
 			},
 			"File": {
 				"type": "string"
