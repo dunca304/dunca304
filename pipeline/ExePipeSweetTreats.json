@@ -1,6 +1,53 @@
 {
-	"name": "ExePipeSFFormatFolder",
+	"name": "ExePipeSweetTreats",
 	"properties": {
+		"activities": [
+			{
+				"name": "Execute SweetTreats",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ImportSTFormatFolder",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"WildcardFolderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/SweetTreats"
+					}
+				}
+			},
+			{
+				"name": "Execute Desserts4All",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute SweetTreats",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ImportSTFormatFolder",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"WildcardFolderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/Deserts4All"
+					}
+				}
+			}
+		],
 		"folder": {
 			"name": "Chapter 5"
 		},
