@@ -96,6 +96,7 @@
 						"referenceName": "ABS_JSON_AZUREBLOBSTORAGELAND",
 						"type": "DatasetReference",
 						"parameters": {
+							"Container": "sampledata",
 							"Directory": ".",
 							"File": "."
 						}
