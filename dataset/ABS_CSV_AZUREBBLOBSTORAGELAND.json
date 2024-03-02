@@ -33,7 +33,10 @@
 					"value": "@dataset().WildcardFolderPath",
 					"type": "Expression"
 				},
-				"container": "sampledata"
+				"container": {
+					"value": "@dataset().Dataset",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
