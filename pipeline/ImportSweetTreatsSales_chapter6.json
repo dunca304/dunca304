@@ -318,9 +318,8 @@
 			"Directory": {
 				"type": "string"
 			},
-			"Filename": {
-				"type": "string",
-				"defaultValue": "*.csv"
+			"File": {
+				"type": "string"
 			}
 		},
 		"variables": {
