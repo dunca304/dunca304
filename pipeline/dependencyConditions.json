@@ -10,7 +10,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipeVar1",
+					"value": {
+						"value": "@string(int('not an int'))",
+						"type": "Expression"
+					}
+				}
 			},
 			{
 				"name": "Set variable2",
@@ -19,7 +26,7 @@
 					{
 						"activity": "Set variable1",
 						"dependencyConditions": [
-							"Succeeded"
+							"Failed"
 						]
 					}
 				],
@@ -27,7 +34,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipeVar1",
+					"value": {
+						"value": "@string(int('54'))",
+						"type": "Expression"
+					}
+				}
 			},
 			{
 				"name": "Set variable3",
@@ -36,7 +50,7 @@
 					{
 						"activity": "Set variable2",
 						"dependencyConditions": [
-							"Succeeded"
+							"Skipped"
 						]
 					}
 				],
@@ -44,7 +58,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipeVar1",
+					"value": {
+						"value": "@string(int('98'))",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
