@@ -14,9 +14,6 @@
 			},
 			"File": {
 				"type": "string"
-			},
-			"LinkedServiceConnection": {
-				"type": "string"
 			}
 		},
 		"folder": {
