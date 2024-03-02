@@ -12,6 +12,9 @@
 			"WildcardFileName": {
 				"type": "string",
 				"defaultValue": "*.csv"
+			},
+			"Dataset": {
+				"type": "string"
 			}
 		},
 		"folder": {
