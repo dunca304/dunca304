@@ -193,9 +193,9 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Import sales data",
+						"activity": "If Rows Skipped",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
@@ -395,6 +395,19 @@
 					"referenceName": "AzurePrftTutorialADF",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "If Rows Skipped",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Import sales data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
