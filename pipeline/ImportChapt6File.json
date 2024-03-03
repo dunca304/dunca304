@@ -444,10 +444,10 @@
 					"storedProcedureParameters": {
 						"RunSeqNo": {
 							"value": {
-								"value": "@activity('Lookup RunSeqNo').output.firstRow",
+								"value": "@int(activity('Lookup RunSeqNo').output.firstRow)",
 								"type": "Expression"
 							},
-							"type": "Int16"
+							"type": "Int32"
 						}
 					}
 				},
