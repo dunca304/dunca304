@@ -60,6 +60,7 @@
 						"value": "@activity('Get File List').output.childItems",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "Execute PipelineChpt6",
@@ -74,7 +75,7 @@
 									"referenceName": "ImportChapt6File",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true,
+								"waitOnCompletion": false,
 								"parameters": {
 									"Directory": {
 										"value": "@pipeline().parameters.FolderPath",
