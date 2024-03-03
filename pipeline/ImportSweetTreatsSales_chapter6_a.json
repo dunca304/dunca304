@@ -48,7 +48,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "truncate table Sales_LOAD",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -419,6 +418,26 @@
 						"value": "@greater(activity('Import sales data').output.rowsSkipped, 0)",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "PushData",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[PersistLoadedSales]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzurePrftTutorialADF",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],
