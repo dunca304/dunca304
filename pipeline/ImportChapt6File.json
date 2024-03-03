@@ -34,11 +34,7 @@
 							},
 							{
 								"name": "sourceFileName",
-								"value": "$$FILEPATH"
-							},
-							{
-								"name": "",
-								"value": "$$FILEPATH"
+								"value": "$$FILENAME"
 							}
 						],
 						"storeSettings": {
