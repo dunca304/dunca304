@@ -35,6 +35,10 @@
 							{
 								"name": "sourceFileName",
 								"value": "$$FILEPATH"
+							},
+							{
+								"name": "",
+								"value": "$$FILEPATH"
 							}
 						],
 						"storeSettings": {
