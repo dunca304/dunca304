@@ -1,5 +1,5 @@
 {
-	"name": "ImportSTFormatFile_chap6_b",
+	"name": "ForEachChapter6",
 	"properties": {
 		"activities": [
 			{
@@ -71,7 +71,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "ImportSweetTreatsSales_chapter6_a",
+									"referenceName": "ImportChapt6File",
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true,
