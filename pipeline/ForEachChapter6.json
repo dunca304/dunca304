@@ -75,7 +75,7 @@
 									"referenceName": "ImportChapt6File",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": false,
+								"waitOnCompletion": true,
 								"parameters": {
 									"Directory": {
 										"value": "@pipeline().parameters.FolderPath",
