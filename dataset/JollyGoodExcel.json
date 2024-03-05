@@ -17,22 +17,28 @@
 				"fileName": "Sales Apr-Sep 2020.xlsx",
 				"folderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/JollyGood",
 				"container": "sampledata"
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": [
 			{
+				"name": "Period",
 				"type": "String"
 			},
 			{
+				"name": "Product",
 				"type": "String"
 			},
 			{
+				"name": "Unit Price",
 				"type": "String"
 			},
 			{
+				"name": "Currency",
 				"type": "String"
 			},
 			{
+				"name": "Units Sold",
 				"type": "String"
 			}
 		]
