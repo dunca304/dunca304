@@ -32,9 +32,18 @@
 				},
 				{
 					"name": "LkupRate"
+				},
+				{
+					"name": "Sales"
+				},
+				{
+					"name": "Product"
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     RunSeqNo as integer (-1)",
+				"}",
 				"source(output(",
 				"          Period as date,",
 				"          Product as string,",
@@ -65,7 +74,10 @@
 				"RemoveTotals, USDOnly lookup(Currency == FromCurrency",
 				"     && Period == Date,",
 				"     multiple: true,",
-				"     broadcast: 'auto')~> LkupRate"
+				"     broadcast: 'auto')~> LkupRate",
+				"LkupRate derive(SalePrice = {Unit Price}*ExchangeRate,",
+				"          Sales = {Unit Price}*{Units Sold}*ExchangeRate) ~> Sales",
+				"Sales derive(Realtor = 'Jolly Good Ltd') ~> Product"
 			]
 		}
 	}
