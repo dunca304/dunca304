@@ -13,10 +13,27 @@
 						"type": "DatasetReference"
 					},
 					"name": "JollyGoodSales"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorageLand",
+						"type": "LinkedServiceReference"
+					},
+					"name": "ExchangeRates"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "RemoveTotals"
+				},
+				{
+					"name": "USDOnly"
+				},
+				{
+					"name": "LkupRate"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Period as date,",
@@ -27,7 +44,28 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> JollyGoodSales"
+				"     ignoreNoFilesFound: false) ~> JollyGoodSales",
+				"source(output(",
+				"          FromCurrency as string,",
+				"          ToCurrency as string,",
+				"          Date as date,",
+				"          ExchangeRate as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'excel',",
+				"     container: 'sampledata',",
+				"     folderPath: 'azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData',",
+				"     fileName: 'ExchangeRates.xlsx',",
+				"     sheetName: 'Sheet1',",
+				"     firstRowAsHeader: true) ~> ExchangeRates",
+				"JollyGoodSales filter(Product != 'Month Total') ~> RemoveTotals",
+				"ExchangeRates filter(ToCurrency=='USD') ~> USDOnly",
+				"RemoveTotals, USDOnly lookup(Currency == FromCurrency",
+				"     && Period == Date,",
+				"     multiple: true,",
+				"     broadcast: 'auto')~> LkupRate"
 			]
 		}
 	}
