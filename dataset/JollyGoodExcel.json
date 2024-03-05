@@ -1,0 +1,40 @@
+{
+	"name": "JollyGoodExcel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLand",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter 7"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "SALES",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales Apr-Sep 2020.xlsx",
+				"folderPath": "azure-data-factory-by-example-main.zip/azure-data-factory-by-example-main/SampleData/JollyGood",
+				"container": "sampledata"
+			}
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
