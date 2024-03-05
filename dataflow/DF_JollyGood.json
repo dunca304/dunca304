@@ -140,6 +140,8 @@
 				"          Product,",
 				"          SalesValueUSD = SalesMonth,",
 				"          UnitsSold,",
+				"          PipelineRunId = PipelineId,",
+				"          sourceFileName = FileName,",
 				"          RunSeqNo",
 				"     )) ~> SalesLoadTable"
 			]
