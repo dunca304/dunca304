@@ -41,6 +41,9 @@
 				},
 				{
 					"name": "Metadata"
+				},
+				{
+					"name": "SelectMap"
 				}
 			],
 			"scriptLines": [
@@ -81,7 +84,18 @@
 				"LkupRate derive(SalePrice = {Unit Price}*ExchangeRate,",
 				"          Sales = {Unit Price}*{Units Sold}*ExchangeRate) ~> Sales",
 				"Sales derive(Realtor = 'Jolly Good Ltd') ~> Product",
-				"Product derive(RunSeqNo = $RunSeqNo) ~> Metadata"
+				"Product derive(RunSeqNo = $RunSeqNo) ~> Metadata",
+				"Metadata select(mapColumn(",
+				"          SalesMonth = Period,",
+				"          Product,",
+				"          UnitsSold = {Units Sold},",
+				"          SalePrice,",
+				"          Sales,",
+				"          Realtor,",
+				"          RunSeqNo",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectMap"
 			]
 		}
 	}
