@@ -38,6 +38,9 @@
 				},
 				{
 					"name": "Product"
+				},
+				{
+					"name": "Metadata"
 				}
 			],
 			"scriptLines": [
@@ -77,7 +80,8 @@
 				"     broadcast: 'auto')~> LkupRate",
 				"LkupRate derive(SalePrice = {Unit Price}*ExchangeRate,",
 				"          Sales = {Unit Price}*{Units Sold}*ExchangeRate) ~> Sales",
-				"Sales derive(Realtor = 'Jolly Good Ltd') ~> Product"
+				"Sales derive(Realtor = 'Jolly Good Ltd') ~> Product",
+				"Product derive(RunSeqNo = $RunSeqNo) ~> Metadata"
 			]
 		}
 	}
