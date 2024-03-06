@@ -138,7 +138,7 @@
 				"          Retailer = Realtor,",
 				"          SalesMonth,",
 				"          Product,",
-				"          SalesValueUSD = SalesMonth,",
+				"          SalesValueUSD = Sales,",
 				"          UnitsSold,",
 				"          PipelineRunId = PipelineId,",
 				"          sourceFileName = FileName,",
