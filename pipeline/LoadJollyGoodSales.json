@@ -75,7 +75,7 @@
 						"type": "DataFlowReference",
 						"parameters": {
 							"RunSeqNo": {
-								"value": "@activity('Lookup1').output.firstRow.RunSeqNo",
+								"value": "-1",
 								"type": "Expression"
 							},
 							"FileName": "'Not Specificed'",
