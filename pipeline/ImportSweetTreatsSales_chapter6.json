@@ -197,7 +197,7 @@
 					"storedProcedureParameters": {
 						"FilesRead": {
 							"value": {
-								"value": "@activity('Import sales data').output.filesRead",
+								"value": "@activity('Import sales data').output.FilesRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
