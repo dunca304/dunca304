@@ -74,7 +74,7 @@
 				"derivedColumn1 aggregate(groupBy(Product),",
 				"     ProductName = first(ProductName),",
 				"          each(match(startsWith(name, 'Weight')), $$ = first($$))) ~> aggregate1",
-				"source1, aggregate1 exists(source1@Product == aggregate1@Product,",
+				"aggregate1, source1 exists(source1@Product == aggregate1@Product,",
 				"     negate:true,",
 				"     broadcast: 'auto')~> exists1",
 				"exists1 sink(allowSchemaDrift: true,",
