@@ -22,7 +22,15 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlProduct",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "derivedColumn1"
@@ -68,7 +76,29 @@
 				"          each(match(startsWith(name, 'Weight')), $$ = first($$))) ~> aggregate1",
 				"source1, aggregate1 exists(source1@Product == aggregate1@Product,",
 				"     negate:true,",
-				"     broadcast: 'auto')~> exists1"
+				"     broadcast: 'auto')~> exists1",
+				"exists1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Product as string,",
+				"          ProductName as string,",
+				"          WeightInOunces as decimal(19,2),",
+				"          WeightInGrams as decimal(19,2)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Product,",
+				"          ProductName,",
+				"          WeightInOunces,",
+				"          WeightInGrams",
+				"     )) ~> sink1"
 			]
 		}
 	}
