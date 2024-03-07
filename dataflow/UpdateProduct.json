@@ -97,7 +97,7 @@
 				"          Product,",
 				"          ProductName,",
 				"          WeightInOunces,",
-				"          WeightInGrams",
+				"          WeightInGrams = WeightinGrams",
 				"     )) ~> sink1"
 			]
 		}
