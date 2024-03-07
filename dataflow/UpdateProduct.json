@@ -1,0 +1,46 @@
+{
+	"name": "UpdateProduct",
+	"properties": {
+		"folder": {
+			"name": "Chapter 7"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSQLSales",
+						"type": "DatasetReference"
+					},
+					"name": "Sales"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          RowId as integer,",
+				"          Retailer as string,",
+				"          SalesMonth as date,",
+				"          Product as string,",
+				"          SalesValueUSD as decimal(19,2),",
+				"          UnitsSold as integer,",
+				"          RunSeqNo as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Sales",
+				"Sales derive(ProductName = trim(left(Product, length(Product) - length(:WeightString))),",
+				"          WeightInOunces = toFloat(replace(:WeightString, :WeightUnit, '' ))/ iif(:WeightUnit=='g', 28.3495, 1.0),",
+				"          WeightinGrams = toFloat(replace(:WeightString, :WeightUnit, '' ))/ iif(:WeightUnit=='g', 1.0, 28.3495),",
+				"          WeightString := right(Product, locate(' ', reverse(Product)) - 1),",
+				"          WeightUnit := iif(endsWith(Product, 'oz'), 'oz', 'g')) ~> derivedColumn1"
+			]
+		}
+	}
+}
