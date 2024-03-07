@@ -45,7 +45,7 @@
 				"          WeightUnit := iif(endsWith(Product, 'oz'), 'oz', 'g')) ~> derivedColumn1",
 				"derivedColumn1 aggregate(groupBy(Product),",
 				"     ProductName = first(ProductName),",
-				"          each(match(startsWith(name, 'Weight')), ERROR_FUNCTION('') = ERROR_FUNCTION(''))) ~> aggregate1"
+				"          each(match(startsWith(name, 'Weight')), ERROR_FUNCTION('') = first($$))) ~> aggregate1"
 			]
 		}
 	}
