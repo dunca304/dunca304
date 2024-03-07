@@ -152,21 +152,21 @@
 					"storedProcedureParameters": {
 						"FilesRead": {
 							"value": {
-								"value": "@activity('Lookup1').output.FilesRead",
+								"value": "'NA'",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowsCopied": {
 							"value": {
-								"value": "@activity('Lookup1').output.RowsCopied",
+								"value": "'NA'",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowsRead": {
 							"value": {
-								"value": "@activity('Lookup1').output.RowsRead",
+								"value": "'NA'",
 								"type": "Expression"
 							},
 							"type": "Int32"
