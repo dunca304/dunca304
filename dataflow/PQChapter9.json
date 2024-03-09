@@ -1,0 +1,23 @@
+{
+	"name": "PQChapter9",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"folder": {
+			"name": "Chapter9"
+		},
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "Chpter9Parquet",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tformat: 'parquet') ~>  Chpter9Parquet",
+					"dataset": {
+						"referenceName": "Chpter9Parquet",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared Chpter9Parquet = let AdfDoc = AzureStorage.BlobContents(\"https://prftbibddsa.blob.core.windows.net/output/datalake/HandyCandy.parquet\"), Parquet = Parquet.Document(AdfDoc) in Parquet;\r\nshared UserQuery = let Source = #\"Chpter9Parquet\",\r\n  #\"Removed columns\" = Table.RemoveColumns(Source, {\"TransactionId\", \"StoreId\"}),\r\n  #\"Added custom\" = Table.TransformColumnTypes(Table.AddColumn(#\"Removed columns\", \"EndOfPreviousMonth\", each Date.AddDays([TransactionDate], -Date.Day([TransactionDate]))), {{\"EndOfPreviousMonth\", type date}}),\r\n  #\"Added custom 1\" = Table.TransformColumnTypes(Table.AddColumn(#\"Added custom\", \"SalesMonth\", each Date.AddDays([EndOfPreviousMonth], 1)), {{\"SalesMonth\", type date}}),\r\n  #\"Removed columns 1\" = Table.RemoveColumns(#\"Added custom 1\", {\"TransactionDate\", \"EndOfPreviousMonth\"}),\r\n  #\"Grouped rows\" = Table.Group(#\"Removed columns 1\", {\"SalesMonth\", \"Product\"}, {{\"Price\", each List.Sum([Price]), type nullable number}, {\"ItemCount\", each Table.RowCount(_), Int64.Type}}),\r\n  #\"Renamed columns\" = Table.RenameColumns(#\"Grouped rows\", {{\"ItemCount\", \"UnitsSold\"}}),\r\n  #\"Added custom 2\" = Table.TransformColumnTypes(Table.AddColumn(#\"Renamed columns\", \"Retailer\", each \"Handy Candy\"), {{\"Retailer\", type text}}) in #\"Added custom 2\";\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
