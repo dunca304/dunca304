@@ -1,0 +1,26 @@
+{
+	"name": "ds_raw_orderitems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsdlOrders",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "UdemyOne"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "orderitems.txt",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
