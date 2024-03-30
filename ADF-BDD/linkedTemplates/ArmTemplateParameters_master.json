@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-BDD"
+		},
+		"AzureBlobStorageLand_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorageLand2_connectionString": {
+			"value": ""
+		},
+		"AzurePrftTutorialADF_connectionString": {
+			"value": ""
+		},
+		"slstOrders_connectionString": {
+			"value": ""
+		},
+		"lsdlOrders_accountKey": {
+			"value": ""
+		},
+		"lsdlOrders_properties_typeProperties_url": {
+			"value": "https://prftbibddadlsa.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
