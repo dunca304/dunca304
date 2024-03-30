@@ -5,6 +5,9 @@
 			"referenceName": "slstOrders",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "UdemyOne"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
