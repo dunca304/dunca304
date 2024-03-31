@@ -47,6 +47,9 @@
 			"transformations": [
 				{
 					"name": "ordersel"
+				},
+				{
+					"name": "CastOrderCols"
 				}
 			],
 			"scriptLines": [
@@ -81,8 +84,19 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> ProductRaw",
-				"orderRaw select(skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> ordersel"
+				"orderRaw select(mapColumn(",
+				"          ORDER_ID,",
+				"          ORDER_DATETIME,",
+				"          CUSTOMER_ID,",
+				"          ORDER_STATUS,",
+				"          STORE_ID",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ordersel",
+				"ordersel cast(output(",
+				"          ORDER_ID as integer",
+				"     ),",
+				"     errors: true) ~> CastOrderCols"
 			]
 		}
 	}
