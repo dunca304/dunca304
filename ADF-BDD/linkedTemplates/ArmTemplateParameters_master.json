@@ -14,10 +14,10 @@
 		"AzurePrftTutorialADF_connectionString": {
 			"value": ""
 		},
-		"slstOrders_connectionString": {
+		"lsdlOrders_accountKey": {
 			"value": ""
 		},
-		"lsdlOrders_accountKey": {
+		"slstOrders_connectionString": {
 			"value": ""
 		},
 		"lsdlOrders_properties_typeProperties_url": {

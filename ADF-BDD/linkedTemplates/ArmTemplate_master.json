@@ -19,13 +19,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzurePrftTutorialADF'"
 		},
-		"slstOrders_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'slstOrders'"
-		},
 		"lsdlOrders_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'lsdlOrders'"
+		},
+		"slstOrders_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'slstOrders'"
 		},
 		"lsdlOrders_properties_typeProperties_url": {
 			"type": "string",
@@ -67,11 +67,11 @@
 					"AzurePrftTutorialADF_connectionString": {
 						"value": "[parameters('AzurePrftTutorialADF_connectionString')]"
 					},
-					"slstOrders_connectionString": {
-						"value": "[parameters('slstOrders_connectionString')]"
-					},
 					"lsdlOrders_accountKey": {
 						"value": "[parameters('lsdlOrders_accountKey')]"
+					},
+					"slstOrders_connectionString": {
+						"value": "[parameters('slstOrders_connectionString')]"
 					},
 					"lsdlOrders_properties_typeProperties_url": {
 						"value": "[parameters('lsdlOrders_properties_typeProperties_url')]"
