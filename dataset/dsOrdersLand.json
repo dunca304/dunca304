@@ -5,6 +5,9 @@
 			"referenceName": "slstOrders",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "UdemyOne/Landing"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {

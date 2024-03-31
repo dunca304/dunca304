@@ -5,6 +5,9 @@
 			"referenceName": "lsdlOrders",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "UdemyOne/Raw"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {

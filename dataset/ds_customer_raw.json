@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "UdemyOne"
+			"name": "UdemyOne/Raw"
 		},
 		"annotations": [],
 		"type": "Json",
