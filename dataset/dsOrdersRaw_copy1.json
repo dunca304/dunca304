@@ -1,5 +1,5 @@
 {
-	"name": "dsOrdersRaw",
+	"name": "dsOrdersRaw_copy1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lsdlOrders",
@@ -17,27 +17,6 @@
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": [
-			{
-				"name": "ORDER_ID",
-				"type": "UTF8"
-			},
-			{
-				"name": "ORDER_DATETIME",
-				"type": "UTF8"
-			},
-			{
-				"name": "CUSTOMER_ID",
-				"type": "UTF8"
-			},
-			{
-				"name": "ORDER_STATUS",
-				"type": "UTF8"
-			},
-			{
-				"name": "STORE_ID",
-				"type": "UTF8"
-			}
-		]
+		"schema": []
 	}
 }
