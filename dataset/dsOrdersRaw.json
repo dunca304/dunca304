@@ -1,0 +1,19 @@
+{
+	"name": "dsOrdersRaw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsdlOrders",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
