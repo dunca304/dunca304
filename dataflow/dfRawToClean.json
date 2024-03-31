@@ -52,6 +52,9 @@
 				},
 				{
 					"name": "AddStoreTS"
+				},
+				{
+					"name": "addProductTS"
 				}
 			],
 			"scriptLines": [
@@ -109,7 +112,8 @@
 				"CastOrderCols derive(ORDER_TIMESTAMP = toTimestamp(ORDER_DATETIME, 'dd-MMM-yy HH.mm.ss'),",
 				"          UPDATED_TIMESTAMP = currentUTC()) ~> dcAddTS",
 				"CastOrderItem derive(UPDATED_TIMESTAMP = currentUTC()) ~> AddTS",
-				"storeRaw derive(UPDATED_TS = currentUTC()) ~> AddStoreTS"
+				"storeRaw derive(UPDATED_TS = currentUTC()) ~> AddStoreTS",
+				"ProductRaw derive(UPDATED_TS = currentUTC()) ~> addProductTS"
 			]
 		}
 	}
