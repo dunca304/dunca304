@@ -94,7 +94,10 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> ordersel",
 				"ordersel cast(output(",
-				"          ORDER_ID as integer",
+				"          ORDER_ID as integer,",
+				"          ORDER_DATETIME as string,",
+				"          CUSTOMER_ID as integer,",
+				"          STORE_ID as integer",
 				"     ),",
 				"     errors: true) ~> CastOrderCols"
 			]
