@@ -1,0 +1,76 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "udemy1"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dsOrdersRaw",
+						"type": "DatasetReference"
+					},
+					"name": "orderRaw"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_customer_raw",
+						"type": "DatasetReference"
+					},
+					"name": "customerRaw"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_raw_orderitems",
+						"type": "DatasetReference"
+					},
+					"name": "orderItemRaw"
+				},
+				{
+					"dataset": {
+						"referenceName": "dsStoreRaw",
+						"type": "DatasetReference"
+					},
+					"name": "storeRaw"
+				},
+				{
+					"dataset": {
+						"referenceName": "dsProductRaw",
+						"type": "DatasetReference"
+					},
+					"name": "ProductRaw"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> orderRaw",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> customerRaw",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> orderItemRaw",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> storeRaw",
+				"source(output(",
+				"          CUSTOMER_ID as string,",
+				"          FULL_NAME as string,",
+				"          EMAIL_ADDRESS as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> ProductRaw"
+			]
+		}
+	}
+}
