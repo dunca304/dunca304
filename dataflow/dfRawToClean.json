@@ -44,7 +44,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "ordersel"
+				}
+			],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -69,7 +73,9 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> ProductRaw"
+				"     documentForm: 'documentPerLine') ~> ProductRaw",
+				"orderRaw select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ordersel"
 			]
 		}
 	}
