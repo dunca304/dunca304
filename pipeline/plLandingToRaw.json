@@ -111,14 +111,7 @@
 			{
 				"name": "CopyCustomerLandtoRaw_copy1",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "CopyOrderLandToRaw",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -166,14 +159,7 @@
 			{
 				"name": "CopyProductToRaw",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "CopyCustomerLandtoRaw_copy1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -221,14 +207,7 @@
 			{
 				"name": "CopyProductToRaw_copy1",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "CopyProductToRaw",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -276,14 +255,7 @@
 			{
 				"name": "CopyOrderLandToRaw",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "CopyOrderItemsToRaw",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
