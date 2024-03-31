@@ -1,0 +1,35 @@
+{
+	"name": "ds_customer_land",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "slstOrders",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "UdemyOne"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "customers.json",
+				"container": "landing"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"CUSTOMER_ID": {
+					"type": "string"
+				},
+				"FULL_NAME": {
+					"type": "string"
+				},
+				"EMAIL_ADDRESS": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
