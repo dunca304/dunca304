@@ -45,7 +45,13 @@
 					"name": "CastOrderItem"
 				},
 				{
-					"name": "CastStore"
+					"name": "dcAddTS"
+				},
+				{
+					"name": "AddTS"
+				},
+				{
+					"name": "AddStoreTS"
 				}
 			],
 			"scriptLines": [
@@ -70,14 +76,21 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> orderItemRaw",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          LATITUDE as double,",
+				"          LONGITUDE as double,",
+				"          STORE_ID as short,",
+				"          STORE_NAME as string,",
+				"          WEB_ADDRESS as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> storeRaw",
 				"source(output(",
-				"          CUSTOMER_ID as string,",
-				"          FULL_NAME as string,",
-				"          EMAIL_ADDRESS as string",
+				"          PRODUCT_ID as short,",
+				"          PRODUCT_NAME as string,",
+				"          UNIT_PRICE as double",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -93,7 +106,10 @@
 				"          ORDER_ID as string",
 				"     ),",
 				"     errors: true) ~> CastOrderItem",
-				"storeRaw cast(errors: true) ~> CastStore"
+				"CastOrderCols derive(ORDER_TIMESTAMP = toTimestamp(ORDER_DATETIME, 'dd-MMM-yy HH.mm.ss'),",
+				"          UPDATED_TIMESTAMP = currentUTC()) ~> dcAddTS",
+				"CastOrderItem derive(UPDATED_TIMESTAMP = currentUTC()) ~> AddTS",
+				"storeRaw derive(UPDATED_TS = currentUTC()) ~> AddStoreTS"
 			]
 		}
 	}
