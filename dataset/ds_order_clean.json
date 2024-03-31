@@ -1,0 +1,23 @@
+{
+	"name": "ds_order_clean",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsdlOrders",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "UdemyOne/Cleansed"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "order",
+				"fileSystem": "cleansed"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
