@@ -16,13 +16,6 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_customer_raw",
-						"type": "DatasetReference"
-					},
-					"name": "customerRaw"
-				},
-				{
-					"dataset": {
 						"referenceName": "ds_raw_orderitems",
 						"type": "DatasetReference"
 					},
@@ -46,10 +39,13 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "ordersel"
+					"name": "CastOrderCols"
 				},
 				{
-					"name": "CastOrderCols"
+					"name": "CastOrderItem"
+				},
+				{
+					"name": "CastStore"
 				}
 			],
 			"scriptLines": [
@@ -64,11 +60,14 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> orderRaw",
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> customerRaw",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          ORDER_ID as integer,",
+				"          LINE_ITEM_ID as integer,",
+				"          PRODUCT_ID as integer,",
+				"          UNIT_PRICE as double,",
+				"          QUANTITY as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> orderItemRaw",
 				"source(allowSchemaDrift: true,",
@@ -84,22 +83,17 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> ProductRaw",
-				"orderRaw select(mapColumn(",
-				"          ORDER_ID,",
-				"          ORDER_DATETIME,",
-				"          CUSTOMER_ID,",
-				"          ORDER_STATUS,",
-				"          STORE_ID",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> ordersel",
-				"ordersel cast(output(",
+				"orderRaw cast(output(",
 				"          ORDER_ID as integer,",
-				"          ORDER_DATETIME as string,",
 				"          CUSTOMER_ID as integer,",
 				"          STORE_ID as integer",
 				"     ),",
-				"     errors: true) ~> CastOrderCols"
+				"     errors: true) ~> CastOrderCols",
+				"orderItemRaw cast(output(",
+				"          ORDER_ID as string",
+				"     ),",
+				"     errors: true) ~> CastOrderItem",
+				"storeRaw cast(errors: true) ~> CastStore"
 			]
 		}
 	}
