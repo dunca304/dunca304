@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dfRawToClean",
 	"properties": {
 		"folder": {
 			"name": "udemy1"
