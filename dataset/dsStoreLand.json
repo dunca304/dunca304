@@ -1,0 +1,17 @@
+{
+	"name": "dsStoreLand",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "slstOrders",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation"
+			}
+		},
+		"schema": {}
+	}
+}

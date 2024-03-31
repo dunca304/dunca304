@@ -1,0 +1,32 @@
+{
+	"name": "dsProductLand",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "slstOrders",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "products.json",
+				"container": "landing"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"PRODUCT_ID": {
+					"type": "string"
+				},
+				"PRODUCT_NAME": {
+					"type": "string"
+				},
+				"UNIT_PRICE": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
